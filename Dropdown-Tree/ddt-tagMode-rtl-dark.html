@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Essential JS 2 for Dropdown Tree</title>
+    <link id="theme" href="styles/material-dark.css" rel="stylesheet" />
+    <script src="datasource.json" type="text/javascript"></script>
+    <script src="scripts/ej2.min.js" type="text/javascript"></script>
+</head>
+
+<body style="background-color: #1F2937">
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <button id="material" value="0">Material</button>
+                </td>
+                <td>
+                    <button id="fabric" value="1">Fabric</button>
+                </td>
+                <td>
+                    <button id="bootstrap" value="2">Bootstrap</button>
+                </td>
+                <td>
+                    <button id="bootstrap4" value="2">highcontrast</button>
+                </td>
+                <td>
+                    <button id="tailwind" value="2">Tailwind</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+<br><br><br>
+    <div id="container">
+        <b>Default</b>
+        <br><br><br>
+        <input id="default" />
+    </div>
+
+    <div id="container">
+        <b>ShowCheckBox-Default</b>
+        <br><br><br>
+        <input id="checkbox" />
+
+    </div>
+
+    <div id="container">
+        <b>ShowCheckBox-Box</b>
+        <br><br><br>
+        <input id="checkbox1" />
+
+    </div>
+
+    <div id="container">
+        <b>ShowCheckBox-Delimiter</b>
+        <br><br><br>
+        <input id="checkbox2" />
+
+    </div>
+
+    <div id="container">
+        <b>Show select all</b>
+        <br><br><br>
+        <input id="selectall" />
+
+    </div>
+
+
+    <div id="container">
+        <b>Filtering</b>
+        <br><br><br>
+        <input id="filter" />
+
+    </div>
+    <!-- allowMultiSelection -->
+
+    <div id="container">
+        <b>allowMultiSelection - wrapText enabled</b>
+        <br><br><br>
+        <input id="wrap1" />
+
+    </div>
+
+
+    <div id="container">
+        <b>allowMultiSelection - wrapText Delimiter</b>
+        <br><br><br>
+        <input id="wrap2" />
+
+    </div>
+
+
+    <div id="container">
+        <b>allowMultiSelection - wrapText Box</b>
+        <br><br><br>
+        <input id="wrap3" />
+
+    </div>
+
+    <div id="container">
+        <b>ShowCheckBox-AutoCheck</b>
+        <br><br><br>
+        <input id="autocheck" />
+
+    </div>
+
+    <div id="container">
+        <b>TagTemplate</b>
+        <br><br><br>
+        <input id="tagTemplate" />
+
+    </div>
+
+    <div id="container">
+        <b>Locale</b>
+        <br><br><br>
+        <input id="locale" />
+
+    </div>
+
+    <div id="container">
+        <b>Remote Data</b>
+        <br><br><br>
+        <input id="remote" />
+
+    </div>
+
+    <div id="container">
+        <b>Dynamic cases</b>
+        <br>  <br>
+        <span>tagMode</span>
+        <td><input type="checkbox" onclick="enableTagMode(this);" /></td>
+       <button id="tagbtn">Click me to change tagtemplate</button>
+        <br><br><br>
+        <input id="dynamic" />
+
+    </div>
+
+    <script>
+document.getElementById('material').onclick = function() {
+    document.getElementById("theme").setAttribute('href', 'styles/material-dark.css');
+};
+document.getElementById('fabric').onclick = function() {
+    document.getElementById("theme").setAttribute('href', 'styles/fabric-dark.css');
+};
+document.getElementById('bootstrap').onclick = function() {
+    document.getElementById("theme").setAttribute('href', 'styles/bootstrap-dark.css');
+};
+document.getElementById('bootstrap4').onclick =function() {
+    document.getElementById("theme").setAttribute('href', 'styles/highcontrast-dark.css');
+};
+
+document.getElementById('tailwind').onclick = function() {
+    document.getElementById("theme").setAttribute('href', 'styles/tailwind-dark.css');
+};
+        //Initialize DropwDown control
+        var ddTreeObj = new ej.dropdowns.DropDownTree({
+            fields: { dataSource: window.hierarchicalData, value: 'id', text: 'name', child: 'subChild' },
+            width: '250px', popupHeight: '300px',
+            placeholder: 'Select a folder or file',
+            enableRtl: true,
+            tagMode: true
+        });
+        //Render initialized TreeView
+        ddTreeObj.appendTo("#default");
+
+        //Initialize DropwDown control
+        var ddTreeObjcheck = new ej.dropdowns.DropDownTree({
+            fields: { dataSource: window.countries, value: 'id', parentValue: 'pid', text: 'name', hasChildren: 'hasChild', },
+            placeholder: 'Select items',
+            width: '250px', popupHeight: '300px',
+            showCheckBox: true,
+            enableRtl: true,
+            tagMode: true
+        });
+        //Render initialized TreeView
+        ddTreeObjcheck.appendTo("#checkbox");
+
+        //Initialize DropwDown control
+        var ddTreeObjcheck1 = new ej.dropdowns.DropDownTree({
+            fields: {
+                dataSource: window.treeViewData, value: 'nodeId', text: 'nodeText', child: 'nodeChild',
+            },
+            width: '250px', popupHeight: '300px',
+            placeholder: 'Select a folder or file',
+            showCheckBox: true,
+            enableRtl: true,
+            mode: "Box",
+            tagMode: true
+        });
+        //Render initialized TreeView
+        ddTreeObjcheck1.appendTo("#checkbox1");
+
+        //Initialize DropwDown control
+        var ddTreeObjcheck2 = new ej.dropdowns.DropDownTree({
+            fields: { dataSource: window.countries, value: 'id', parentValue: 'pid', text: 'name', hasChildren: 'hasChild', },
+            width: '250px', popupHeight: '300px',
+            placeholder: 'Select items',
+            showCheckBox: true,
+            mode: "Delimiter",
+            enableRtl: true,
+            tagMode: true
+        });
+        //Render initialized TreeView
+        ddTreeObjcheck2.appendTo("#checkbox2");
+
+        //Initialize DropwDown control
+        var ddTreeObjselect = new ej.dropdowns.DropDownTree({
+            fields: {
+                dataSource: data, value: 'id',
+                text: 'name', child: 'subChild',
+            },
+            width: '250px', popupHeight: '300px',
+            placeholder: "Select countries",
+            showCheckBox: true,
+            enableRtl: true,
+            showSelectAll: true,
+            tagMode: true
+        });
+        //Render initialized TreeView
+        ddTreeObjselect.appendTo("#selectall");
+
+        //Initialize DropwDown control
+        var ddTreeObjfilter = new ej.dropdowns.DropDownTree({
+            fields: { dataSource: window.templateData, text: 'name', value: 'id', parentValue: 'pid', hasChildren: 'hasChild' },
+            width: '250px', popupHeight: '300px',
+            placeholder: 'Select an employee',
+            allowFiltering: true,
+            tagMode: true,
+            showCheckBox: true,
+            enableRtl: true,
+            filterBarPlaceholder: 'Search for an Employee',
+        });
+        //Render initialized TreeView
+        ddTreeObjfilter.appendTo("#filter");
+        //Initialize DropwDown control
+        var ddTreeObj_wrap1 = new ej.dropdowns.DropDownTree({
+            fields: { dataSource: window.continentData, value: 'code', text: 'name', child: 'countries' },
+            width: '250px', popupHeight: '300px',
+            placeholder: 'Select an item',
+            allowMultiSelection: true,
+            wrapText: true,
+            enableRtl: true,
+            tagMode: true
+        });
+        //Render initialized TreeView
+        ddTreeObj_wrap1.appendTo("#wrap1");
+        //Initialize DropwDown control
+        var ddTreeObj_wrap2 = new ej.dropdowns.DropDownTree({
+            fields: {
+                dataSource: window.localData, value: 'id', parentValue: 'pid',
+                text: 'name', hasChildren: 'hasChild'
+            },
+            width: '250px', popupHeight: '300px',
+            placeholder: 'Select an item',
+            allowMultiSelection: true,
+            mode: 'Delimiter',
+            enableRtl: true,
+            wrapText: true,
+            tagMode: true
+        });
+        //Render initialized TreeView
+        ddTreeObj_wrap2.appendTo("#wrap2");
+        //Initialize DropwDown control
+        var ddTreeObj_wrap3 = new ej.dropdowns.DropDownTree({
+            fields: { dataSource: localData, value: 'id', parentValue: 'pid', text: 'name', hasChildren: 'hasChild' },
+            width: '250px', popupHeight: '300px',
+            placeholder: "Select countries",
+            allowMultiSelection: true,
+            mode: 'Box',
+            wrapText: true,
+            enableRtl: true,
+            tagMode: true
+        });
+        //Render initialized TreeView
+        ddTreeObj_wrap3.appendTo("#wrap3");
+
+        var autoCheckTree = new ej.dropdowns.DropDownTree({
+            fields: {
+                dataSource: data, value: 'id',
+                text: 'name', child: 'subChild',
+            },
+            width: '250px', popupHeight: '300px',
+            placeholder: "Select countries",
+            showCheckBox: true,
+            enableRtl: true,
+            treeSettings: { autoCheck: true },
+            tagMode: true
+        });
+        //Render initialized TreeView
+        autoCheckTree.appendTo("#autocheck");
+
+
+        var ddt_tag = new ej.dropdowns.DropDownTree({
+            fields: { dataSource: localData, value: 'id', parentValue: 'pid', text: 'name', hasChildren: 'hasChild' },
+            width: '250px', popupHeight: '300px',
+            placeholder: "Select countries",
+            showCheckBox: true,
+            mode: 'Box',
+            enableRtl: true,
+            tagMode: true,
+            tagTemplate: "No of items selected: ${count}"
+        });
+        //Render initialized TreeView
+        ddt_tag.appendTo("#tagTemplate");
+
+        var ddt_locale = new ej.dropdowns.DropDownTree({
+            fields: { dataSource: localData, value: 'id', parentValue: 'pid', text: 'name', hasChildren: 'hasChild' },
+            width: '250px', popupHeight: '300px',
+            placeholder: "Select countries",
+            showCheckBox: true,
+            mode: 'Box',
+            tagMode: true,
+            enableRtl: true,
+            locale: 'fr-BE'
+        });
+        //Render initialized TreeView
+        ddt_locale.appendTo("#locale");
+
+        ej.base.L10n.load({
+            'fr-BE': {
+                'drop-down-tree': {
+                    'tagTemplate': "${count} élément(s) sélectionné(s)",
+                }
+            }
+        });
+        var data = new ej.data.DataManager({
+            url: 'https://services.odata.org/V4/Northwind/Northwind.svc',
+            adaptor: new ej.data.ODataV4Adaptor,
+            crossDomain: true,
+        });
+        var data2 = new ej.data.DataManager({
+            url: 'https://services.odata.org/V4/Northwind/Northwind.svc',
+            adaptor: new ej.data.ODataV4Adaptor,
+            crossDomain: true,
+        });
+        var query = new ej.data.Query().from('Employees').select('EmployeeID,FirstName,Title').take(5);
+        var query1 = new ej.data.Query().from('Orders').select('OrderID,EmployeeID,ShipName').take(5);
+        var query2 = new ej.data.Query().from("Orders").select("CustomerID,OrderID,EmployeeID,Freight").take(3);
+        var ddt_remote = new ej.dropdowns.DropDownTree({
+            fields: {
+                dataSource: data, query: query, value: 'EmployeeID', text: 'FirstName', hasChildren: 'EmployeeID',
+                child: { dataSource: data, query: query1, value: 'OrderID', parentValue: 'EmployeeID', text: 'ShipName' }
+            },
+            showCheckBox: true,
+            enableRtl: true,
+            tagMode: true
+        });
+        //Render initialized TreeView
+        ddt_remote.appendTo("#remote");
+
+        var ddt_dynamic = new ej.dropdowns.DropDownTree({
+            fields: { dataSource: localData, value: 'id', parentValue: 'pid', text: 'name', hasChildren: 'hasChild' },
+            width: '250px', popupHeight: '300px',
+            placeholder: "Select countries",
+            showCheckBox: true,
+            enableRtl: true,
+            mode: 'Box',
+        });
+        //Render initialized TreeView
+        ddt_dynamic.appendTo("#dynamic");
+
+        function enableTagMode(ele) {
+            var ddtree = document.getElementById("dynamic").ej2_instances[0];
+            if (ddtree) ddtree.tagMode = ele.checked;
+        }
+        document.getElementById('tagbtn').addEventListener('click', function() { debugger
+            var ddtree = document.getElementById("dynamic").ej2_instances[0];
+            if (ddtree) ddtree.tagTemplate = "Total item count: ${count}";
+        });
+    </script>
+
+    <style>
+        #container {
+            float: left;
+            width: 400px;
+            height: 500px;
+            overflow: auto;
+            padding: 10px;
+            margin: 20px;
+            border: 1px solid #dddddd;
+            border-radius: 3px;
+        }
+        b {
+            color: white;
+        }
+    </style>
+
+
+</body>
+
+</html>

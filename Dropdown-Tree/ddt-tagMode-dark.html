@@ -22,7 +22,7 @@
                     <button id="bootstrap" value="2">Bootstrap</button>
                 </td>
                 <td>
-                    <button id="bootstrap4" value="2">HighContrast</button>
+                    <button id="bootstrap4" value="2">Bootstrap4</button>
                 </td>
                 <td>
                     <button id="tailwind" value="2">Tailwind</button>
@@ -38,25 +38,19 @@
     </div>
 
     <div id="container">
-        <b>ShowCheckBox-Default</b>
+        <b>ShowCheckBox-Custom</b>
         <br><br><br>
         <input id="checkbox" />
 
     </div>
 
     <div id="container">
-        <b>ShowCheckBox-Box</b>
+        <b>ShowCheckBox- Custom- WrapText Enabled</b>
         <br><br><br>
         <input id="checkbox1" />
 
     </div>
 
-    <div id="container">
-        <b>ShowCheckBox-Delimiter</b>
-        <br><br><br>
-        <input id="checkbox2" />
-
-    </div>
 
     <div id="container">
         <b>Show select all</b>
@@ -83,17 +77,9 @@
 
 
     <div id="container">
-        <b>allowMultiSelection - wrapText Delimiter</b>
+        <b>allowMultiSelection -Custom</b>
         <br><br><br>
         <input id="wrap2" />
-
-    </div>
-
-
-    <div id="container">
-        <b>allowMultiSelection - wrapText Box</b>
-        <br><br><br>
-        <input id="wrap3" />
 
     </div>
 
@@ -105,9 +91,9 @@
     </div>
 
     <div id="container">
-        <b>TagTemplate</b>
+        <b>customTemplate</b>
         <br><br><br>
-        <input id="tagTemplate" />
+        <input id="customTemplate" />
 
     </div>
 
@@ -130,7 +116,7 @@
         <br>  <br>
         <span>tagMode</span>
         <td><input type="checkbox" onclick="enableTagMode(this);" /></td>
-       <button id="tagbtn">Click me to change tagtemplate</button>
+       <button id="tagbtn">Click me to change customTemplate</button>
         <br><br><br>
         <input id="dynamic" />
 
@@ -138,27 +124,27 @@
 
     <script>
 document.getElementById('material').onclick = function() {
-    document.getElementById("theme").setAttribute('href', 'styles/material-dark.css');
+    document.getElementById("theme").setAttribute('href', 'styles/material.css');
 };
 document.getElementById('fabric').onclick = function() {
-    document.getElementById("theme").setAttribute('href', 'styles/fabric-dark.css');
+    document.getElementById("theme").setAttribute('href', 'styles/fabric.css');
 };
 document.getElementById('bootstrap').onclick = function() {
-    document.getElementById("theme").setAttribute('href', 'styles/bootstrap-dark.css');
+    document.getElementById("theme").setAttribute('href', 'styles/bootstrap.css');
 };
 document.getElementById('bootstrap4').onclick =function() {
-    document.getElementById("theme").setAttribute('href', 'styles/highcontrast.css');
+    document.getElementById("theme").setAttribute('href', 'styles/bootstrap4.css');
 };
 
 document.getElementById('tailwind').onclick = function() {
-    document.getElementById("theme").setAttribute('href', 'styles/tailwind-dark.css');
+    document.getElementById("theme").setAttribute('href', 'styles/tailwind.css');
 };
         //Initialize DropwDown control
         var ddTreeObj = new ej.dropdowns.DropDownTree({
             fields: { dataSource: window.hierarchicalData, value: 'id', text: 'name', child: 'subChild' },
             width: '250px', popupHeight: '300px',
             placeholder: 'Select a folder or file',
-            tagMode: true
+            mode: 'Custom'
         });
         //Render initialized TreeView
         ddTreeObj.appendTo("#default");
@@ -169,7 +155,7 @@ document.getElementById('tailwind').onclick = function() {
             placeholder: 'Select items',
             width: '250px', popupHeight: '300px',
             showCheckBox: true,
-            tagMode: true
+            mode: 'Custom'
         });
         //Render initialized TreeView
         ddTreeObjcheck.appendTo("#checkbox");
@@ -182,23 +168,12 @@ document.getElementById('tailwind').onclick = function() {
             width: '250px', popupHeight: '300px',
             placeholder: 'Select a folder or file',
             showCheckBox: true,
-            mode: "Box",
-            tagMode: true
+            mode: 'Custom',
+            wrapText: true
         });
         //Render initialized TreeView
         ddTreeObjcheck1.appendTo("#checkbox1");
 
-        //Initialize DropwDown control
-        var ddTreeObjcheck2 = new ej.dropdowns.DropDownTree({
-            fields: { dataSource: window.countries, value: 'id', parentValue: 'pid', text: 'name', hasChildren: 'hasChild', },
-            width: '250px', popupHeight: '300px',
-            placeholder: 'Select items',
-            showCheckBox: true,
-            mode: "Delimiter",
-            tagMode: true
-        });
-        //Render initialized TreeView
-        ddTreeObjcheck2.appendTo("#checkbox2");
 
         //Initialize DropwDown control
         var ddTreeObjselect = new ej.dropdowns.DropDownTree({
@@ -210,7 +185,7 @@ document.getElementById('tailwind').onclick = function() {
             placeholder: "Select countries",
             showCheckBox: true,
             showSelectAll: true,
-            tagMode: true
+            mode: 'Custom',
         });
         //Render initialized TreeView
         ddTreeObjselect.appendTo("#selectall");
@@ -222,7 +197,7 @@ document.getElementById('tailwind').onclick = function() {
             placeholder: 'Select an employee',
             allowFiltering: true,
             showCheckBox: true,
-            tagMode: true,
+            mode: 'Custom',
             filterBarPlaceholder: 'Search for an Employee',
         });
         //Render initialized TreeView
@@ -234,7 +209,7 @@ document.getElementById('tailwind').onclick = function() {
             placeholder: 'Select an item',
             allowMultiSelection: true,
             wrapText: true,
-            tagMode: true
+            mode: 'Custom',
         });
         //Render initialized TreeView
         ddTreeObj_wrap1.appendTo("#wrap1");
@@ -247,25 +222,11 @@ document.getElementById('tailwind').onclick = function() {
             width: '250px', popupHeight: '300px',
             placeholder: 'Select an item',
             allowMultiSelection: true,
-            mode: 'Delimiter',
-            wrapText: true,
-            tagMode: true
+            mode: 'Custom',
+           
         });
         //Render initialized TreeView
         ddTreeObj_wrap2.appendTo("#wrap2");
-        //Initialize DropwDown control
-        var ddTreeObj_wrap3 = new ej.dropdowns.DropDownTree({
-            fields: { dataSource: localData, value: 'id', parentValue: 'pid', text: 'name', hasChildren: 'hasChild' },
-            width: '250px', popupHeight: '300px',
-            placeholder: "Select countries",
-            allowMultiSelection: true,
-            mode: 'Box',
-            wrapText: true,
-            tagMode: true
-        });
-        //Render initialized TreeView
-        ddTreeObj_wrap3.appendTo("#wrap3");
-
         var autoCheckTree = new ej.dropdowns.DropDownTree({
             fields: {
                 dataSource: data, value: 'id',
@@ -275,7 +236,7 @@ document.getElementById('tailwind').onclick = function() {
             placeholder: "Select countries",
             showCheckBox: true,
             treeSettings: { autoCheck: true },
-            tagMode: true
+            mode: 'Custom',
         });
         //Render initialized TreeView
         autoCheckTree.appendTo("#autocheck");
@@ -286,20 +247,18 @@ document.getElementById('tailwind').onclick = function() {
             width: '250px', popupHeight: '300px',
             placeholder: "Select countries",
             showCheckBox: true,
-            mode: 'Box',
-            tagMode: true,
-            tagTemplate: "No of items selected: ${count}"
+            mode: 'Custom',
+            customTemplate: "No of items selected: ${count}"
         });
         //Render initialized TreeView
-        ddt_tag.appendTo("#tagTemplate");
+        ddt_tag.appendTo("#customTemplate");
 
         var ddt_locale = new ej.dropdowns.DropDownTree({
             fields: { dataSource: localData, value: 'id', parentValue: 'pid', text: 'name', hasChildren: 'hasChild' },
             width: '250px', popupHeight: '300px',
             placeholder: "Select countries",
             showCheckBox: true,
-            mode: 'Box',
-            tagMode: true,
+             mode: 'Custom',
             locale: 'fr-BE'
         });
         //Render initialized TreeView
@@ -308,7 +267,7 @@ document.getElementById('tailwind').onclick = function() {
         ej.base.L10n.load({
             'fr-BE': {
                 'drop-down-tree': {
-                    'tagTemplate': "${count} élément(s) sélectionné(s)",
+                    'customTemplate': "${count} élément(s) sélectionné(s)",
                 }
             }
         });
@@ -332,7 +291,7 @@ document.getElementById('tailwind').onclick = function() {
                 child: { dataSource: data, query: query1, value: 'OrderID', parentValue: 'EmployeeID', text: 'ShipName' }
             },
             showCheckBox: true,
-            tagMode: true
+            mode: 'Custom',
         });
         //Render initialized TreeView
         ddt_remote.appendTo("#remote");
@@ -342,18 +301,17 @@ document.getElementById('tailwind').onclick = function() {
             width: '250px', popupHeight: '300px',
             placeholder: "Select countries",
             showCheckBox: true,
-            mode: 'Box',
         });
         //Render initialized TreeView
         ddt_dynamic.appendTo("#dynamic");
 
         function enableTagMode(ele) {
             var ddtree = document.getElementById("dynamic").ej2_instances[0];
-            if (ddtree) ddtree.tagMode = ele.checked;
+            if (ddtree && ele.checked) ddtree.mode = "Custom";
         }
         document.getElementById('tagbtn').addEventListener('click', function() { debugger
             var ddtree = document.getElementById("dynamic").ej2_instances[0];
-            if (ddtree) ddtree.tagTemplate = "Total item count: ${count}";
+            if (ddtree) ddtree.customTemplate = "Total item count: ${count}";
         });
     </script>
 
@@ -367,9 +325,6 @@ document.getElementById('tailwind').onclick = function() {
             margin: 20px;
             border: 1px solid #dddddd;
             border-radius: 3px;
-        }
-        b {
-            color: white;
         }
     </style>
 

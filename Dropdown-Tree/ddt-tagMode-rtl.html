@@ -38,25 +38,19 @@
     </div>
 
     <div id="container">
-        <b>ShowCheckBox-Default</b>
+        <b>ShowCheckBox-Custom</b>
         <br><br><br>
         <input id="checkbox" />
 
     </div>
 
     <div id="container">
-        <b>ShowCheckBox-Box</b>
+        <b>ShowCheckBox- Custom- WrapText Enabled</b>
         <br><br><br>
         <input id="checkbox1" />
 
     </div>
 
-    <div id="container">
-        <b>ShowCheckBox-Delimiter</b>
-        <br><br><br>
-        <input id="checkbox2" />
-
-    </div>
 
     <div id="container">
         <b>Show select all</b>
@@ -83,17 +77,9 @@
 
 
     <div id="container">
-        <b>allowMultiSelection - wrapText Delimiter</b>
+        <b>allowMultiSelection -Custom</b>
         <br><br><br>
         <input id="wrap2" />
-
-    </div>
-
-
-    <div id="container">
-        <b>allowMultiSelection - wrapText Box</b>
-        <br><br><br>
-        <input id="wrap3" />
 
     </div>
 
@@ -105,9 +91,9 @@
     </div>
 
     <div id="container">
-        <b>TagTemplate</b>
+        <b>customTemplate</b>
         <br><br><br>
-        <input id="tagTemplate" />
+        <input id="customTemplate" />
 
     </div>
 
@@ -130,7 +116,7 @@
         <br>  <br>
         <span>tagMode</span>
         <td><input type="checkbox" onclick="enableTagMode(this);" /></td>
-       <button id="tagbtn">Click me to change tagtemplate</button>
+       <button id="tagbtn">Click me to change customTemplate</button>
         <br><br><br>
         <input id="dynamic" />
 
@@ -158,8 +144,8 @@ document.getElementById('tailwind').onclick = function() {
             fields: { dataSource: window.hierarchicalData, value: 'id', text: 'name', child: 'subChild' },
             width: '250px', popupHeight: '300px',
             placeholder: 'Select a folder or file',
-            tagMode: true,
-            enableRtl: true
+            enableRtl: true,
+            mode: 'Custom'
         });
         //Render initialized TreeView
         ddTreeObj.appendTo("#default");
@@ -169,9 +155,9 @@ document.getElementById('tailwind').onclick = function() {
             fields: { dataSource: window.countries, value: 'id', parentValue: 'pid', text: 'name', hasChildren: 'hasChild', },
             placeholder: 'Select items',
             width: '250px', popupHeight: '300px',
-            enableRtl: true,
             showCheckBox: true,
-            tagMode: true
+            enableRtl: true,
+            mode: 'Custom'
         });
         //Render initialized TreeView
         ddTreeObjcheck.appendTo("#checkbox");
@@ -185,24 +171,12 @@ document.getElementById('tailwind').onclick = function() {
             placeholder: 'Select a folder or file',
             showCheckBox: true,
             enableRtl: true,
-            mode: "Box",
-            tagMode: true
+            mode: 'Custom',
+            wrapText: true
         });
         //Render initialized TreeView
         ddTreeObjcheck1.appendTo("#checkbox1");
 
-        //Initialize DropwDown control
-        var ddTreeObjcheck2 = new ej.dropdowns.DropDownTree({
-            fields: { dataSource: window.countries, value: 'id', parentValue: 'pid', text: 'name', hasChildren: 'hasChild', },
-            width: '250px', popupHeight: '300px',
-            placeholder: 'Select items',
-            enableRtl: true,
-            showCheckBox: true,
-            mode: "Delimiter",
-            tagMode: true
-        });
-        //Render initialized TreeView
-        ddTreeObjcheck2.appendTo("#checkbox2");
 
         //Initialize DropwDown control
         var ddTreeObjselect = new ej.dropdowns.DropDownTree({
@@ -212,10 +186,10 @@ document.getElementById('tailwind').onclick = function() {
             },
             width: '250px', popupHeight: '300px',
             placeholder: "Select countries",
-            enableRtl: true,
             showCheckBox: true,
+            enableRtl: true,
             showSelectAll: true,
-            tagMode: true
+            mode: 'Custom',
         });
         //Render initialized TreeView
         ddTreeObjselect.appendTo("#selectall");
@@ -226,9 +200,9 @@ document.getElementById('tailwind').onclick = function() {
             width: '250px', popupHeight: '300px',
             placeholder: 'Select an employee',
             allowFiltering: true,
-            enableRtl: true,
             showCheckBox: true,
-            tagMode: true,
+            enableRtl: true,
+            mode: 'Custom',
             filterBarPlaceholder: 'Search for an Employee',
         });
         //Render initialized TreeView
@@ -239,9 +213,9 @@ document.getElementById('tailwind').onclick = function() {
             width: '250px', popupHeight: '300px',
             placeholder: 'Select an item',
             allowMultiSelection: true,
-            enableRtl: true,
             wrapText: true,
-            tagMode: true
+            enableRtl: true,
+            mode: 'Custom',
         });
         //Render initialized TreeView
         ddTreeObj_wrap1.appendTo("#wrap1");
@@ -254,27 +228,12 @@ document.getElementById('tailwind').onclick = function() {
             width: '250px', popupHeight: '300px',
             placeholder: 'Select an item',
             allowMultiSelection: true,
-            mode: 'Delimiter',
-            wrapText: true,
             enableRtl: true,
-            tagMode: true
+            mode: 'Custom',
+           
         });
         //Render initialized TreeView
         ddTreeObj_wrap2.appendTo("#wrap2");
-        //Initialize DropwDown control
-        var ddTreeObj_wrap3 = new ej.dropdowns.DropDownTree({
-            fields: { dataSource: localData, value: 'id', parentValue: 'pid', text: 'name', hasChildren: 'hasChild' },
-            width: '250px', popupHeight: '300px',
-            placeholder: "Select countries",
-            allowMultiSelection: true,
-            enableRtl: true,
-            mode: 'Box',
-            wrapText: true,
-            tagMode: true
-        });
-        //Render initialized TreeView
-        ddTreeObj_wrap3.appendTo("#wrap3");
-
         var autoCheckTree = new ej.dropdowns.DropDownTree({
             fields: {
                 dataSource: data, value: 'id',
@@ -285,7 +244,7 @@ document.getElementById('tailwind').onclick = function() {
             showCheckBox: true,
             enableRtl: true,
             treeSettings: { autoCheck: true },
-            tagMode: true
+            mode: 'Custom',
         });
         //Render initialized TreeView
         autoCheckTree.appendTo("#autocheck");
@@ -296,22 +255,20 @@ document.getElementById('tailwind').onclick = function() {
             width: '250px', popupHeight: '300px',
             placeholder: "Select countries",
             showCheckBox: true,
+            mode: 'Custom',
             enableRtl: true,
-            mode: 'Box',
-            tagMode: true,
-            tagTemplate: "No of items selected: ${count}"
+            customTemplate: "No of items selected: ${count}"
         });
         //Render initialized TreeView
-        ddt_tag.appendTo("#tagTemplate");
+        ddt_tag.appendTo("#customTemplate");
 
         var ddt_locale = new ej.dropdowns.DropDownTree({
             fields: { dataSource: localData, value: 'id', parentValue: 'pid', text: 'name', hasChildren: 'hasChild' },
             width: '250px', popupHeight: '300px',
             placeholder: "Select countries",
             showCheckBox: true,
-            mode: 'Box',
-            enableRtl: true,
-            tagMode: true,
+             mode: 'Custom',
+             enableRtl: true,
             locale: 'fr-BE'
         });
         //Render initialized TreeView
@@ -320,7 +277,7 @@ document.getElementById('tailwind').onclick = function() {
         ej.base.L10n.load({
             'fr-BE': {
                 'drop-down-tree': {
-                    'tagTemplate': "${count} élément(s) sélectionné(s)",
+                    'customTemplate': "${count} élément(s) sélectionné(s)",
                 }
             }
         });
@@ -344,8 +301,8 @@ document.getElementById('tailwind').onclick = function() {
                 child: { dataSource: data, query: query1, value: 'OrderID', parentValue: 'EmployeeID', text: 'ShipName' }
             },
             showCheckBox: true,
+            mode: 'Custom',
             enableRtl: true,
-            tagMode: true
         });
         //Render initialized TreeView
         ddt_remote.appendTo("#remote");
@@ -356,18 +313,17 @@ document.getElementById('tailwind').onclick = function() {
             placeholder: "Select countries",
             showCheckBox: true,
             enableRtl: true,
-            mode: 'Box',
         });
         //Render initialized TreeView
         ddt_dynamic.appendTo("#dynamic");
 
         function enableTagMode(ele) {
             var ddtree = document.getElementById("dynamic").ej2_instances[0];
-            if (ddtree) ddtree.tagMode = ele.checked;
+            if (ddtree && ele.checked) ddtree.mode = "Custom";
         }
         document.getElementById('tagbtn').addEventListener('click', function() { debugger
             var ddtree = document.getElementById("dynamic").ej2_instances[0];
-            if (ddtree) ddtree.tagTemplate = "Total item count: ${count}";
+            if (ddtree) ddtree.customTemplate = "Total item count: ${count}";
         });
     </script>
 

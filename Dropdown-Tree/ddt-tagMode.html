@@ -98,9 +98,16 @@
     </div>
 
     <div id="container">
-        <b>Locale</b>
+        <b>scriptTemplate</b>
         <br><br><br>
         <input id="locale" />
+
+    </div>
+
+    <div id="container">
+        <b>stringTemplate</b>
+        <br><br><br>
+        <input id="stringTemplate" />
 
     </div>
 
@@ -121,7 +128,21 @@
         <input id="dynamic" />
 
     </div>
-
+    <script id="treeTemplate" type="text/x-template">
+        <div>
+            <div class="treeviewdiv">
+                ${if(value.length==1)}
+                    <div class="nodebadge">
+                        <span class="treeCount e-badge e-badge-primary">${text}</span>
+                    </div>
+                ${else}
+                <div class="nodebadge">
+                    <span class="treeCount e-badge e-badge-primary">${value.length} selected</span>
+                </div>
+                ${/if}
+            </div>
+        </div>
+    </script>
     <script>
 document.getElementById('material').onclick = function() {
     document.getElementById("theme").setAttribute('href', 'styles/material.css');
@@ -248,7 +269,7 @@ document.getElementById('tailwind').onclick = function() {
             placeholder: "Select countries",
             showCheckBox: true,
             mode: 'Custom',
-            customTemplate: "No of items selected: ${count}"
+            customTemplate: "No of items selected: ${value}"
         });
         //Render initialized TreeView
         ddt_tag.appendTo("#customTemplate");
@@ -259,18 +280,22 @@ document.getElementById('tailwind').onclick = function() {
             placeholder: "Select countries",
             showCheckBox: true,
              mode: 'Custom',
-            locale: 'fr-BE'
+          customTemplate: '#treeTemplate'
         });
         //Render initialized TreeView
         ddt_locale.appendTo("#locale");
 
-        ej.base.L10n.load({
-            'fr-BE': {
-                'drop-down-tree': {
-                    'customTemplate': "${count} élément(s) sélectionné(s)",
-                }
-            }
+        var ddt_string = new ej.dropdowns.DropDownTree({
+            fields: { dataSource: localData, value: 'id', parentValue: 'pid', text: 'name', hasChildren: 'hasChild' },
+            width: '250px', popupHeight: '300px',
+            placeholder: "Select countries",
+            showCheckBox: true,
+             mode: 'Custom',
+             customTemplate: "<div><img id='image' height='20px' width='20px' src='https://ej2.syncfusion.com/demos/src/drop-down-tree/images/employees/10.png'/><span>${value}</span></div>"
         });
+        //Render initialized TreeView
+        ddt_string.appendTo("#stringTemplate");
+
 
         var data = new ej.data.DataManager({
             url: 'https://services.odata.org/V4/Northwind/Northwind.svc',
@@ -311,7 +336,7 @@ document.getElementById('tailwind').onclick = function() {
         }
         document.getElementById('tagbtn').addEventListener('click', function() { debugger
             var ddtree = document.getElementById("dynamic").ej2_instances[0];
-            if (ddtree) ddtree.customTemplate = "Total item count: ${count}";
+            if (ddtree) ddtree.customTemplate = "Total item count: ${value.length}";
         });
     </script>
 
@@ -325,6 +350,9 @@ document.getElementById('tailwind').onclick = function() {
             margin: 20px;
             border: 1px solid #dddddd;
             border-radius: 3px;
+        }
+        #image {
+            vertical-align: bottom;
         }
     </style>
 

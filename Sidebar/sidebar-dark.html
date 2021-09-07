@@ -1,0 +1,270 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <link rel="stylesheet" href="styles/bootstrap5-dark.css" />
+    <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js" type="text/javascript"></script>
+</head>
+
+<body style="background: black;">
+
+    <aside id="myBar">
+        <div class="title"> Sidebar content</div>
+        <div class="sub-title">
+            Click the button to close the Sidebar.
+        </div>
+        <div class="center-align">
+            <button id="close" class="e-btn close-btn">Close Sidebar</button>
+        </div>
+    </aside>
+    <div class="padding">
+        <div class="header">
+            <h3 id="head-title">EJ2 - Sidebar Component Demo</h3>
+            </br>
+            </br>
+            <h4 id="head-title">
+                <p>Click the button to open/close the sidebar</p>
+            </h4>
+            <button style="text-align:center" id="show" class="e-btn e-info">Toggle Sidebar</button>
+        </div>
+        <br>
+        <div class="maincontent">
+            <h4 id="head-title">
+                <b>Types </b> - Specifies the act of expanding or collapsing the sidebar with main content.</h4>
+            <select id="type" class="e-textbox" ng-options="c">
+                <option value="Push">Push</option>
+                <option value="Slide">Slide</option>
+                <option value="Over">Over</option>
+                <option value="Auto">Auto</option>
+            </select>
+            </br>
+            <br/>
+            <h4 id="head-title">
+                <b>Position </b> - Specifies the direction of the sidebar.</h4>
+            <select id='position' class="e-textbox" ng-options="pos">
+                <option value="Left">Left</option>
+                <option value="Right">Right</option>
+            </select>
+            <h4 id="head-title">Enter the mediaQuery value like (min-width:700px)</h4>
+            <input id="mediaQuery" class="e-input e-outline" style="width: 150px;" value="(min-width:700px)"></input>
+            <br/>
+            <br/>
+            <h4 id="head-title">
+                <b>Backdrop</b> - Sets the backdrop over the main content area on open / expanded state.</h4>
+            <button id="backdrop" class="e-btn e-info"> BackDrop</button>
+            <br/>
+            <br/>
+            <h4 id="head-title">Enter the width value like 260px</h4>
+            <input id="width" class="e-input e-outline" style="width: 100px;" value="260px"></input>
+            <br/>
+            <br/>
+            <h4 id="head-title">
+                <b>Animation</b> - Enable or disable the animation transitions on expanding or collapsing the Sidebar.</h4>
+            <button id="animation" class="e-btn e-info"> Animation</button>
+            <br/>
+            <br/>
+            <h4 id="head-title">
+                <b>closing on document click</b> - Allows to collapse / close the sidebar on document click.</h4>
+            <button id="document" class="e-btn e-info"> Closeondocumentclick</button>
+            <br/>
+            <br/>
+            <h4 id="head-title">
+                <b>Enable Gesture</b> - Enable Gesture Enables the expand or collapse while swiping in touch devices.</h4>
+            <button id="gesture" class="e-btn e-info"> Enable Gesture</button>
+            <br/>
+            <br/>
+            <h4 id="head-title">RTL</h3>
+            <button id="rtl" class="e-btn e-info"> RTL</button>
+            <br/>
+            <br/>
+            <h4 id="head-title">Events</h4>
+            <div class="evtbtn" style="padding-bottom: 10px">
+                <input id="clear" class="e-btn e-info" type="button" class="btn btn-default" value="Clear">
+            </div>
+            <div class="eventarea" style="height: 245px;overflow: auto">
+                <span class="EventLog" id="EventLog" style="word-break: normal;"></span>
+            </div>
+        </div>
+    </div>
+</body>
+<style>
+    /* content area Style */
+
+    .padding {
+        padding: 50px;
+    }
+
+    .e-textbox {
+        height: 30px;
+        width: 100px;
+    }
+
+    .title {
+        text-align: center;
+        font-size: 20px;
+        padding: 15px;
+    }
+
+    .sub-title {
+        text-align: center;
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .center-align {
+        text-align: center;
+        padding: 20px;
+    }
+
+    #head-title {
+        font-size: 15px;
+    }
+
+    /* end of content area Style */
+
+    /* sidebar Style */
+
+    #myBar {
+       
+     
+    }
+
+    /* end of sidebar Style */
+</style>
+<script>
+//enable or disable the showbackdrop
+document.getElementById("backdrop").onclick = function (args) {
+    if (sidebarObj.showBackdrop) {
+        sidebarObj.showBackdrop = false;
+        document.getElementById("backdrop").innerText = "ShowBackDrop - Disabled";
+    } else {
+        sidebarObj.showBackdrop = true;
+        document.getElementById("backdrop").innerText = "ShowBackDrop - Enabled";
+    }
+
+}
+// enable or disable the animation 
+document.getElementById("animation").onclick = function (args) {
+    if (sidebarObj.animate) {
+        sidebarObj.animate = false;
+        sidebarObj.dataBind();
+        document.getElementById("animation").innerText = "Animation - Disabled";
+    } else {
+        sidebarObj.animate = true;
+        sidebarObj.dataBind();
+        document.getElementById("animation").innerText = "Animation - Enabled";
+    }
+
+}
+// enable or disable the closeondocumentclick
+document.getElementById("document").onclick = function (args) {
+    if (sidebarObj.closeOnDocumentClick) {
+        sidebarObj.closeOnDocumentClick = false;
+        sidebarObj.dataBind();
+        document.getElementById("document").innerText = "closeOnDocumentClick - Disabled";
+    } else {
+        sidebarObj.closeOnDocumentClick = true;
+        sidebarObj.dataBind();
+        document.getElementById("document").innerText = "closeOnDocumentClick - Enabled";
+    }
+
+}
+// enable or disable the enablegestures
+document.getElementById("gesture").onclick = function (args) {
+    if (sidebarObj.enableGestures) {
+        sidebarObj.enableGestures = false;
+        sidebarObj.dataBind();
+        document.getElementById("gesture").innerText = "enableGestures - Disabled";
+    } else {
+        sidebarObj.enableGestures = true;
+        sidebarObj.dataBind();
+        document.getElementById("gesture").innerText = "enableGestures - Enabled";
+    }
+
+}
+
+document.getElementById("rtl").onclick = function (args) {
+    if (sidebarObj.enableRtl) {
+        sidebarObj.enableRtl = false;
+        sidebarObj.dataBind();
+        document.getElementById("rtl").innerText = "RTL - Disabled";
+    } else {
+        sidebarObj.enableRtl = true;
+        sidebarObj.dataBind();
+        document.getElementById("rtl").innerText = "RTL - Enabled";
+    }
+
+}
+// toggle the sidebar
+document.getElementById('show').onclick = function (args) {
+    sidebarObj.toggle();
+}
+
+document.getElementById('mediaQuery').onblur = function (args) {
+    sidebarObj.mediaQuery = window.matchMedia(args.currentTarget.value);
+    sidebarObj.dataBind();
+}
+
+document.getElementById('width').onblur = function (args) {
+    sidebarObj.width = args.currentTarget.value;
+    sidebarObj.dataBind();
+}
+// change the type of sidebar 
+document.getElementById('type').onchange = function (args) {
+    sidebarObj.type = args.currentTarget.value;
+    sidebarObj.dataBind();
+}
+// change the position of sideabr
+document.getElementById('position').onchange = function (args) {
+    sidebarObj.position = args.currentTarget.value;
+    sidebarObj.dataBind();
+}
+
+
+function appendElement(html) {
+    let span = document.createElement('span');
+    span.innerHTML = html;
+    let log = document.getElementById('EventLog');
+    log.insertBefore(span, log.firstChild);
+}
+
+document.getElementById('clear').onclick = () => {
+    document.getElementById('EventLog').innerHTML = '';
+};
+
+
+
+
+var sidebarObj = new ej.navigations.Sidebar({
+    type: "Push",
+    width: '260px',
+    close: function (args) {
+        document.getElementById("show").style.display = "block";
+        appendElement('Sidebar <b>Close</b> event called<hr>');
+    },
+    open: function (args) {
+        appendElement('Sidebar <b>Open</b> event called<hr>');
+        document.getElementById('close').onclick = function () {
+            sidebarObj.hide();
+        }
+    },
+    created: function () {
+        appendElement('Sidebar <b>Created</b> event called<hr>');
+        document.getElementById('close').onclick = function () {
+            sidebarObj.hide();
+        }
+    },
+    change: function (args) {
+        appendElement('Sidebar <b>Change</b> event called<hr>');
+
+
+},
+});
+sidebarObj.appendTo('#myBar');
+</script>
+</html>
+  
+
+
+  
+

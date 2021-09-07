@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Essential JS 2 for Dropdown Tree</title>
+    <link href="styles/bootstrap5.css" rel="stylesheet" />
+    <script src="datasource.json" type="text/javascript"></script>
+    <script src="ej2.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+    <div id="container">
+        <b>Default</b>
+        <br><br><br>
+        <input id="default" />
+    </div>
+
+    <div id="container">
+        <b>ShowCheckBox-Default</b>
+        <br><br><br>
+        <input id="checkbox" />
+
+    </div>
+
+    <div id="container">
+        <b>ShowCheckBox-Box</b>
+        <br><br><br>
+        <input id="checkbox1" />
+
+    </div>
+
+    <div id="container">
+        <b>ShowCheckBox-Delimiter</b>
+        <br><br><br>
+        <input id="checkbox2" />
+
+    </div>
+
+    <div id="container">
+        <b>Show select all</b>
+        <br><br><br>
+        <input id="selectall" />
+
+    </div>
+
+
+    <div id="container">
+        <b>Filtering</b>
+        <br><br><br>
+        <input id="filter" />
+
+    </div>
+    <!-- allowMultiSelection -->
+
+    <div id="container">
+        <b>allowMultiSelection - wrapText enabled</b>
+        <br><br><br>
+        <input id="wrap1" />
+
+    </div>
+
+
+    <div id="container">
+        <b>allowMultiSelection - wrapText Delimiter</b>
+        <br><br><br>
+        <input id="wrap2" />
+
+    </div>
+
+
+    <div id="container">
+        <b>allowMultiSelection - wrapText Box</b>
+        <br><br><br>
+        <input id="wrap3" />
+
+    </div>
+
+    <div id="container">
+        <b>ShowCheckBox-AutoCheck</b>
+        <br><br><br>
+        <input id="autocheck" />
+
+    </div>
+
+    <script>
+     
+        //Initialize DropwDown control
+        var ddTreeObj = new ej.dropdowns.DropDownTree({
+            fields: { dataSource: window.hierarchicalData, value: 'id', text: 'name', child: 'subChild' },
+          width: '250px',  popupHeight: '300px',
+            placeholder: 'Select a folder or file',
+        });
+        //Render initialized TreeView
+        ddTreeObj.appendTo("#default");
+
+        //Initialize DropwDown control
+        var ddTreeObjcheck = new ej.dropdowns.DropDownTree({
+            fields: { dataSource: window.countries, value: 'id', parentValue: 'pid', text: 'name', hasChildren: 'hasChild', },
+            placeholder: 'Select items',
+          width: '250px',  popupHeight: '300px',
+            showCheckBox: true
+        });
+        //Render initialized TreeView
+        ddTreeObjcheck.appendTo("#checkbox");
+
+        //Initialize DropwDown control
+        var ddTreeObjcheck1 = new ej.dropdowns.DropDownTree({
+            fields: {
+                dataSource: window.treeViewData, value: 'nodeId', text: 'nodeText', child: 'nodeChild',
+            },
+          width: '250px',  popupHeight: '300px',
+            placeholder: 'Select a folder or file',
+            showCheckBox: true,
+            mode: "Box"
+        });
+        //Render initialized TreeView
+        ddTreeObjcheck1.appendTo("#checkbox1");
+
+        //Initialize DropwDown control
+        var ddTreeObjcheck2 = new ej.dropdowns.DropDownTree({
+            fields: { dataSource: window.countries, value: 'id', parentValue: 'pid', text: 'name', hasChildren: 'hasChild', },
+          width: '250px',  popupHeight: '300px',
+            placeholder: 'Select items',
+            showCheckBox: true,
+            mode: "Delimiter"
+        });
+        //Render initialized TreeView
+        ddTreeObjcheck2.appendTo("#checkbox2");
+
+        //Initialize DropwDown control
+        var ddTreeObjselect = new ej.dropdowns.DropDownTree({
+            fields: {
+                dataSource: data, value: 'id',
+                text: 'name', child: 'subChild',
+            },
+          width: '250px',  popupHeight: '300px',
+            placeholder: "Select countries",
+            showCheckBox: true,
+            showSelectAll: true
+        });
+        //Render initialized TreeView
+        ddTreeObjselect.appendTo("#selectall");
+
+        //Initialize DropwDown control
+        var ddTreeObjfilter = new ej.dropdowns.DropDownTree({
+            fields: { dataSource: window.templateData, text: 'name', value: 'id', parentValue: 'pid', hasChildren: 'hasChild' },
+          width: '250px',  popupHeight: '300px',
+            placeholder: 'Select an employee',
+            allowFiltering: true,
+            filterBarPlaceholder: 'Search for an Employee',
+        });
+        //Render initialized TreeView
+        ddTreeObjfilter.appendTo("#filter");
+        //Initialize DropwDown control
+        var ddTreeObj_wrap1 = new ej.dropdowns.DropDownTree({
+            fields: { dataSource: window.continentData, value: 'code', text: 'name', child: 'countries' },
+          width: '250px',  popupHeight: '300px',
+            placeholder: 'Select an item',
+            allowMultiSelection: true,
+            wrapText: true
+        });
+        //Render initialized TreeView
+        ddTreeObj_wrap1.appendTo("#wrap1");
+        //Initialize DropwDown control
+        var ddTreeObj_wrap2 = new ej.dropdowns.DropDownTree({
+            fields: { dataSource: window.localData, value: 'id', parentValue: 'pid',
+                    text: 'name', hasChildren: 'hasChild' },
+          width: '250px',  popupHeight: '300px',
+            placeholder: 'Select an item',
+            allowMultiSelection: true,
+            mode: 'Delimiter',
+            wrapText: true
+        });
+        //Render initialized TreeView
+        ddTreeObj_wrap2.appendTo("#wrap2");
+        //Initialize DropwDown control
+        var ddTreeObj_wrap3 = new ej.dropdowns.DropDownTree({
+            fields: { dataSource: localData, value: 'id', parentValue: 'pid', text: 'name', hasChildren: 'hasChild' },
+          width: '250px',  popupHeight: '300px',
+            placeholder: "Select countries",
+            allowMultiSelection: true,
+            mode: 'Box',
+            wrapText: true
+        });
+        //Render initialized TreeView
+        ddTreeObj_wrap3.appendTo("#wrap3");
+
+        var autoCheckTree = new ej.dropdowns.DropDownTree({
+            fields: {
+                dataSource: data, value: 'id',
+                text: 'name', child: 'subChild',
+            },
+          width: '250px',  popupHeight: '300px',
+            placeholder: "Select countries",
+            showCheckBox: true,
+            treeSettings: {autoCheck: true}
+        });
+        //Render initialized TreeView
+        autoCheckTree.appendTo("#autocheck");
+
+    </script>
+
+    <style>
+
+        #container {
+            float: left;
+            width: 400px;
+            height: 500px;
+            overflow: auto;
+            padding: 10px;
+            margin: 20px;
+            border: 1px solid #dddddd;
+            border-radius: 3px;
+        }
+        
+
+    </style>
+
+
+</body>
+
+</html>

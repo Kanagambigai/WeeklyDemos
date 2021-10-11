@@ -3,12 +3,12 @@
 
 <head>
     <title>Essential JS 2 for Dropdown Tree</title>
-    <link href="styles/material.css" rel="stylesheet" />
+    <link href="styles/material-dark.css" rel="stylesheet" />
     <script src="datasource.json" type="text/javascript"></script>
     <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js" type="text/javascript"></script>
 </head>
 
-<body class='e-bigger'>
+<body style="background: #383838; color: whitesmoke ">
 
     <div id="container">
         <b>Default</b>
@@ -17,101 +17,101 @@
     </div>
 
     <div id="container">
-        <b>showCheckBox- Default With outline</b>
+        <b>showCheckBox- Default With filled</b>
         <br><br><br>
         <input id="selectall" />
     </div>
 
     <div id="container">
-        <b>showCheckBox- Delimiter With outline</b>
+        <b>showCheckBox- Delimiter With filled</b>
         <br><br><br>
         <input id="filter" />
 
     </div>
 
     <div id="container">
-        <b>showCheckBox- Box With outline</b>
+        <b>showCheckBox- Box With filled</b>
         <br><br><br>
         <input id="wrap1" />
     </div>
 
     <div id="container">
-        <b>showCheckBox- Custom With outline</b>
+        <b>showCheckBox- Custom With filled</b>
         <br><br><br>
         <input id="wrap2" />
     </div>
 
     <div id="container">
-        <b>showCheckBox- Default With outline and floatLabel Never</b>
+        <b>showCheckBox- Default With filled and floatLabel Never</b>
         <br><br><br>
         <input id="f1" />
     </div>
 
     <div id="container">
-        <b>showCheckBox- Delimiter With outline and floatLabel Never</b>
+        <b>showCheckBox- Delimiter With filled and floatLabel Never</b>
         <br><br><br>
         <input id="f2" />
 
     </div>
 
     <div id="container">
-        <b>showCheckBox- Box With outline and floatLabel Never</b>
+        <b>showCheckBox- Box With filled and floatLabel Never</b>
         <br><br><br>
         <input id="f3" />
     </div>
 
     <div id="container">
-        <b>showCheckBox- Custom With outline and floatLabel Never</b>
+        <b>showCheckBox- Custom With filled and floatLabel Never</b>
         <br><br><br>
         <input id="f4" />
     </div>
 
     <div id="container">
-        <b>showCheckBox- Default With outline and without close icon</b>
+        <b>showCheckBox- Default With filled and without close icon</b>
         <br><br><br>
         <input id="c1" />
     </div>
 
     <div id="container">
-        <b>showCheckBox- Delimiter With outline and without close icon</b>
+        <b>showCheckBox- Delimiter With filled and without close icon</b>
         <br><br><br>
         <input id="c2" />
 
     </div>
 
     <div id="container">
-        <b>showCheckBox- Box With outline and without close icon</b>
+        <b>showCheckBox- Box With filled and without close icon</b>
         <br><br><br>
         <input id="c3" />
     </div>
 
     <div id="container">
-        <b>showCheckBox- Custom With outline and without close icon</b>
+        <b>showCheckBox- Custom With filled and without close icon</b>
         <br><br><br>
         <input id="c4" />
     </div>
 
     <div id="container">
-        <b>showCheckBox- Default With outline and without DDT icon</b>
+        <b>showCheckBox- Default With filled and without DDT icon</b>
         <br><br><br>
         <input id="d1" />
     </div>
 
     <div id="container">
-        <b>showCheckBox- Delimiter With outline and without DDT icon</b>
+        <b>showCheckBox- Delimiter With filled and without DDT icon</b>
         <br><br><br>
         <input id="d2" />
 
     </div>
 
     <div id="container">
-        <b>showCheckBox- Box With outline and without DDT icon</b>
+        <b>showCheckBox- Box With filled and without DDT icon</b>
         <br><br><br>
         <input id="d3" />
     </div>
 
     <div id="container">
-        <b>showCheckBox- Custom With outline and without DDT icon</b>
+        <b>showCheckBox- Custom With filled and without DDT icon</b>
         <br><br><br>
         <input id="d4" />
     </div>
@@ -148,8 +148,7 @@
             placeholder: "Select countries",
             showCheckBox: true,
             floatLabelType: "Never",
-            enableRtl: true,
-            cssClass: 'e-outline'
+            cssClass: 'e-filled'
         });
         //Render initialized TreeView
         ddTreeObjf1.appendTo("#f1");
@@ -162,8 +161,7 @@
             floatLabelType: "Never",
             placeholder: 'Select items',
             mode: 'Delimiter',
-            enableRtl: true,
-            cssClass: 'e-outline'
+            cssClass: 'e-filled'
         });
         //Render initialized TreeView
         ddTreeObjf2.appendTo("#f2");
@@ -175,8 +173,7 @@
             floatLabelType: "Never",
             placeholder: 'Select items',
             mode: 'Box',
-            enableRtl: true,
-            cssClass: 'e-outline'
+            cssClass: 'e-filled'
         });
         //Render initialized TreeView
         ddTreeObjf3.appendTo("#f3");
@@ -191,8 +188,7 @@
             floatLabelType: "Never",
             placeholder: 'Select items',
             mode: 'Custom',
-            enableRtl: true,
-            cssClass: 'e-outline'
+            cssClass: 'e-filled'
         });
         //Render initialized TreeView
         ddTreeObjf4.appendTo("#f4");
@@ -208,8 +204,7 @@
             showCheckBox: true,
             showClearButton: false,
             floatLabelType: "Always",
-            enableRtl: true,
-            cssClass: 'e-outline'
+            cssClass: 'e-filled'
         });
         //Render initialized TreeView
         ddTreeObjc1.appendTo("#c1");
@@ -223,8 +218,7 @@
             floatLabelType: "Always",
             placeholder: 'Select items',
             mode: 'Delimiter',
-            enableRtl: true,
-            cssClass: 'e-outline'
+            cssClass: 'e-filled'
         });
         //Render initialized TreeView
         ddTreeObjc2.appendTo("#c2");
@@ -237,8 +231,7 @@
             floatLabelType: "Always",
             placeholder: 'Select items',
             mode: 'Box',
-            enableRtl: true,
-            cssClass: 'e-outline'
+            cssClass: 'e-filled'
         });
         //Render initialized TreeView
         ddTreeObjc3.appendTo("#c3");
@@ -254,8 +247,7 @@
             floatLabelType: "Always",
             placeholder: 'Select items',
             mode: 'Custom',
-            enableRtl: true,
-            cssClass: 'e-outline'
+            cssClass: 'e-filled'
         });
         //Render initialized TreeView
         ddTreeObjc4.appendTo("#c4");
@@ -271,8 +263,7 @@
             showCheckBox: true,
             showDropDownIcon: false,
             floatLabelType: "Always",
-            enableRtl: true,
-            cssClass: 'e-outline'
+            cssClass: 'e-filled'
         });
         //Render initialized TreeView
         ddTreeObjd1.appendTo("#d1");
@@ -286,8 +277,7 @@
             floatLabelType: "Always",
             placeholder: 'Select items',
             mode: 'Delimiter',
-            enableRtl: true,
-            cssClass: 'e-outline'
+            cssClass: 'e-filled'
         });
         //Render initialized TreeView
         ddTreeObjd2.appendTo("#d2");
@@ -300,8 +290,7 @@
             floatLabelType: "Always",
             placeholder: 'Select items',
             mode: 'Box',
-            enableRtl: true,
-            cssClass: 'e-outline'
+            cssClass: 'e-filled'
         });
         //Render initialized TreeView
         ddTreeObjd3.appendTo("#d3");
@@ -317,8 +306,7 @@
             floatLabelType: "Always",
             placeholder: 'Select items',
             mode: 'Custom',
-            enableRtl: true,
-            cssClass: 'e-outline'
+            cssClass: 'e-filled'
         });
         //Render initialized TreeView
         ddTreeObjd4.appendTo("#d4");
@@ -327,7 +315,6 @@
         var ddTreeObj = new ej.dropdowns.DropDownTree({
             fields: { dataSource: window.hierarchicalData, value: 'id', text: 'name', child: 'subChild' },
             width: '250px', popupHeight: '300px',
-            enableRtl: true,
             placeholder: 'Select a folder or file',
         });
         //Render initialized TreeView
@@ -338,7 +325,6 @@
             fields: { dataSource: window.countries, value: 'id', parentValue: 'pid', text: 'name', hasChildren: 'hasChild', },
             placeholder: 'Select items',
             width: '250px', popupHeight: '300px',
-            enableRtl: true,
             showCheckBox: true
         });
         //Render initialized TreeView
@@ -352,7 +338,6 @@
             width: '250px', popupHeight: '300px',
             placeholder: 'Select a folder or file',
             showCheckBox: true,
-            enableRtl: true,
             mode: "Box"
         });
         //Render initialized TreeView
@@ -364,7 +349,6 @@
             width: '250px', popupHeight: '300px',
             placeholder: 'Select items',
             showCheckBox: true,
-            enableRtl: true,
             mode: "Delimiter"
         });
         //Render initialized TreeView
@@ -380,8 +364,7 @@
             placeholder: "Select countries",
             showCheckBox: true,
             floatLabelType: "Auto",
-            enableRtl: true,
-            cssClass: 'e-outline'
+            cssClass: 'e-filled'
         });
         //Render initialized TreeView
         ddTreeObjselect.appendTo("#selectall");
@@ -394,8 +377,7 @@
             floatLabelType: "Auto",
             placeholder: 'Select items',
             mode: 'Delimiter',
-            enableRtl: true,
-            cssClass: 'e-outline'
+            cssClass: 'e-filled'
         });
         //Render initialized TreeView
         ddTreeObjfilter.appendTo("#filter");
@@ -407,8 +389,7 @@
             floatLabelType: "Auto",
             placeholder: 'Select items',
             mode: 'Box',
-            enableRtl: true,
-            cssClass: 'e-outline'
+            cssClass: 'e-filled'
         });
         //Render initialized TreeView
         ddTreeObj_wrap1.appendTo("#wrap1");
@@ -423,8 +404,7 @@
             floatLabelType: "Auto",
             placeholder: 'Select items',
             mode: 'Custom',
-            enableRtl: true,
-            cssClass: 'e-outline'
+            cssClass: 'e-filled'
         });
         //Render initialized TreeView
         ddTreeObj_wrap2.appendTo("#wrap2");
@@ -449,6 +429,5 @@
 
 
 </body>
-
 
 </html>

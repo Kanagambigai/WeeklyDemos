@@ -16,15 +16,11 @@
         <input id="default" />
     </div>
 
-
-
     <div id="container">
         <b>showCheckBox- Default With outline</b>
         <br><br><br>
         <input id="selectall" />
-
     </div>
-
 
     <div id="container">
         <b>showCheckBox- Delimiter With outline</b>
@@ -32,46 +28,300 @@
         <input id="filter" />
 
     </div>
-    <!-- allowMultiSelection -->
 
     <div id="container">
         <b>showCheckBox- Box With outline</b>
         <br><br><br>
         <input id="wrap1" />
-
     </div>
-
 
     <div id="container">
         <b>showCheckBox- Custom With outline</b>
         <br><br><br>
         <input id="wrap2" />
+    </div>
+
+    <div id="container">
+        <b>showCheckBox- Default With outline and floatLabel Never</b>
+        <br><br><br>
+        <input id="f1" />
+    </div>
+
+    <div id="container">
+        <b>showCheckBox- Delimiter With outline and floatLabel Never</b>
+        <br><br><br>
+        <input id="f2" />
 
     </div>
+
+    <div id="container">
+        <b>showCheckBox- Box With outline and floatLabel Never</b>
+        <br><br><br>
+        <input id="f3" />
+    </div>
+
+    <div id="container">
+        <b>showCheckBox- Custom With outline and floatLabel Never</b>
+        <br><br><br>
+        <input id="f4" />
+    </div>
+
+    <div id="container">
+        <b>showCheckBox- Default With outline and without close icon</b>
+        <br><br><br>
+        <input id="c1" />
+    </div>
+
+    <div id="container">
+        <b>showCheckBox- Delimiter With outline and without close icon</b>
+        <br><br><br>
+        <input id="c2" />
+
+    </div>
+
+    <div id="container">
+        <b>showCheckBox- Box With outline and without close icon</b>
+        <br><br><br>
+        <input id="c3" />
+    </div>
+
+    <div id="container">
+        <b>showCheckBox- Custom With outline and without close icon</b>
+        <br><br><br>
+        <input id="c4" />
+    </div>
+
+    <div id="container">
+        <b>showCheckBox- Default With outline and without DDT icon</b>
+        <br><br><br>
+        <input id="d1" />
+    </div>
+
+    <div id="container">
+        <b>showCheckBox- Delimiter With outline and without DDT icon</b>
+        <br><br><br>
+        <input id="d2" />
+
+    </div>
+
+    <div id="container">
+        <b>showCheckBox- Box With outline and without DDT icon</b>
+        <br><br><br>
+        <input id="d3" />
+    </div>
+
+    <div id="container">
+        <b>showCheckBox- Custom With outline and without DDT icon</b>
+        <br><br><br>
+        <input id="d4" />
+    </div>
+
+
     <div id="container">
         <b>ShowCheckBox-Default</b>
         <br><br><br>
         <input id="checkbox" />
-
     </div>
 
     <div id="container">
         <b>ShowCheckBox-Box</b>
         <br><br><br>
         <input id="checkbox1" />
-
     </div>
 
     <div id="container">
         <b>ShowCheckBox-Delimiter</b>
         <br><br><br>
         <input id="checkbox2" />
-
     </div>
 
     </div>
 
     <script>
+        //Initialize DropwDown control
+        var ddTreeObjf1 = new ej.dropdowns.DropDownTree({
+            fields: {
+                dataSource: data, value: 'id',
+                text: 'name', child: 'subChild',
+            },
+            width: '450px', popupHeight: '300px',
+            placeholder: "Select countries",
+            showCheckBox: true,
+            floatLabelType: "Never",
+            enableRtl: true,
+            cssClass: 'e-outline'
+        });
+        //Render initialized TreeView
+        ddTreeObjf1.appendTo("#f1");
+
+        //Initialize DropwDown control
+        var ddTreeObjf2 = new ej.dropdowns.DropDownTree({
+            fields: { dataSource: window.templateData, text: 'name', value: 'id', parentValue: 'pid', hasChildren: 'hasChild' },
+            width: '450px', popupHeight: '300px',
+            showCheckBox: true,
+            floatLabelType: "Never",
+            placeholder: 'Select items',
+            mode: 'Delimiter',
+            enableRtl: true,
+            cssClass: 'e-outline'
+        });
+        //Render initialized TreeView
+        ddTreeObjf2.appendTo("#f2");
+        //Initialize DropwDown control
+        var ddTreeObjf3 = new ej.dropdowns.DropDownTree({
+            fields: { dataSource: window.continentData, value: 'code', text: 'name', child: 'countries' },
+            width: '450px', popupHeight: '300px',
+            showCheckBox: true,
+            floatLabelType: "Never",
+            placeholder: 'Select items',
+            mode: 'Box',
+            enableRtl: true,
+            cssClass: 'e-outline'
+        });
+        //Render initialized TreeView
+        ddTreeObjf3.appendTo("#f3");
+        //Initialize DropwDown control
+        var ddTreeObjf4 = new ej.dropdowns.DropDownTree({
+            fields: {
+                dataSource: window.localData, value: 'id', parentValue: 'pid',
+                text: 'name', hasChildren: 'hasChild'
+            },
+            width: '450px', popupHeight: '300px',
+            showCheckBox: true,
+            floatLabelType: "Never",
+            placeholder: 'Select items',
+            mode: 'Custom',
+            enableRtl: true,
+            cssClass: 'e-outline'
+        });
+        //Render initialized TreeView
+        ddTreeObjf4.appendTo("#f4");
+
+        //Initialize DropwDown control
+        var ddTreeObjc1 = new ej.dropdowns.DropDownTree({
+            fields: {
+                dataSource: data, value: 'id',
+                text: 'name', child: 'subChild',
+            },
+            width: '450px', popupHeight: '300px',
+            placeholder: "Select countries",
+            showCheckBox: true,
+            showClearButton: false,
+            floatLabelType: "Always",
+            enableRtl: true,
+            cssClass: 'e-outline'
+        });
+        //Render initialized TreeView
+        ddTreeObjc1.appendTo("#c1");
+
+        //Initialize DropwDown control
+        var ddTreeObjc2 = new ej.dropdowns.DropDownTree({
+            fields: { dataSource: window.templateData, text: 'name', value: 'id', parentValue: 'pid', hasChildren: 'hasChild' },
+            width: '450px', popupHeight: '300px',
+            showCheckBox: true,
+            showClearButton: false,
+            floatLabelType: "Always",
+            placeholder: 'Select items',
+            mode: 'Delimiter',
+            enableRtl: true,
+            cssClass: 'e-outline'
+        });
+        //Render initialized TreeView
+        ddTreeObjc2.appendTo("#c2");
+        //Initialize DropwDown control
+        var ddTreeObjc3 = new ej.dropdowns.DropDownTree({
+            fields: { dataSource: window.continentData, value: 'code', text: 'name', child: 'countries' },
+            width: '450px', popupHeight: '300px',
+            showCheckBox: true,
+            showClearButton: false,
+            floatLabelType: "Always",
+            placeholder: 'Select items',
+            mode: 'Box',
+            enableRtl: true,
+            cssClass: 'e-outline'
+        });
+        //Render initialized TreeView
+        ddTreeObjc3.appendTo("#c3");
+        //Initialize DropwDown control
+        var ddTreeObjc4 = new ej.dropdowns.DropDownTree({
+            fields: {
+                dataSource: window.localData, value: 'id', parentValue: 'pid',
+                text: 'name', hasChildren: 'hasChild'
+            },
+            width: '450px', popupHeight: '300px',
+            showCheckBox: true,
+            showClearButton: false,
+            floatLabelType: "Always",
+            placeholder: 'Select items',
+            mode: 'Custom',
+            enableRtl: true,
+            cssClass: 'e-outline'
+        });
+        //Render initialized TreeView
+        ddTreeObjc4.appendTo("#c4");
+
+        //Initialize DropwDown control
+        var ddTreeObjd1 = new ej.dropdowns.DropDownTree({
+            fields: {
+                dataSource: data, value: 'id',
+                text: 'name', child: 'subChild',
+            },
+            width: '450px', popupHeight: '300px',
+            placeholder: "Select countries",
+            showCheckBox: true,
+            showDropDownIcon: false,
+            floatLabelType: "Always",
+            enableRtl: true,
+            cssClass: 'e-outline'
+        });
+        //Render initialized TreeView
+        ddTreeObjd1.appendTo("#d1");
+
+        //Initialize DropwDown control
+        var ddTreeObjd2 = new ej.dropdowns.DropDownTree({
+            fields: { dataSource: window.templateData, text: 'name', value: 'id', parentValue: 'pid', hasChildren: 'hasChild' },
+            width: '450px', popupHeight: '300px',
+            showCheckBox: true,
+            showDropDownIcon: false,
+            floatLabelType: "Always",
+            placeholder: 'Select items',
+            mode: 'Delimiter',
+            enableRtl: true,
+            cssClass: 'e-outline'
+        });
+        //Render initialized TreeView
+        ddTreeObjd2.appendTo("#d2");
+        //Initialize DropwDown control
+        var ddTreeObjd3 = new ej.dropdowns.DropDownTree({
+            fields: { dataSource: window.continentData, value: 'code', text: 'name', child: 'countries' },
+            width: '450px', popupHeight: '300px',
+            showCheckBox: true,
+            showDropDownIcon: false,
+            floatLabelType: "Always",
+            placeholder: 'Select items',
+            mode: 'Box',
+            enableRtl: true,
+            cssClass: 'e-outline'
+        });
+        //Render initialized TreeView
+        ddTreeObjd3.appendTo("#d3");
+        //Initialize DropwDown control
+        var ddTreeObjd4 = new ej.dropdowns.DropDownTree({
+            fields: {
+                dataSource: window.localData, value: 'id', parentValue: 'pid',
+                text: 'name', hasChildren: 'hasChild'
+            },
+            width: '450px', popupHeight: '300px',
+            showCheckBox: true,
+            showDropDownIcon: false,
+            floatLabelType: "Always",
+            placeholder: 'Select items',
+            mode: 'Custom',
+            enableRtl: true,
+            cssClass: 'e-outline'
+        });
+        //Render initialized TreeView
+        ddTreeObjd4.appendTo("#d4");
 
         //Initialize DropwDown control
         var ddTreeObj = new ej.dropdowns.DropDownTree({
@@ -101,8 +351,8 @@
             },
             width: '250px', popupHeight: '300px',
             placeholder: 'Select a folder or file',
-            enableRtl: true,
             showCheckBox: true,
+            enableRtl: true,
             mode: "Box"
         });
         //Render initialized TreeView
@@ -113,8 +363,8 @@
             fields: { dataSource: window.countries, value: 'id', parentValue: 'pid', text: 'name', hasChildren: 'hasChild', },
             width: '250px', popupHeight: '300px',
             placeholder: 'Select items',
-            enableRtl: true,
             showCheckBox: true,
+            enableRtl: true,
             mode: "Delimiter"
         });
         //Render initialized TreeView
@@ -127,10 +377,10 @@
                 text: 'name', child: 'subChild',
             },
             width: '450px', popupHeight: '300px',
-            enableRtl: true,
             placeholder: "Select countries",
             showCheckBox: true,
             floatLabelType: "Auto",
+            enableRtl: true,
             cssClass: 'e-outline'
         });
         //Render initialized TreeView
@@ -143,8 +393,8 @@
             showCheckBox: true,
             floatLabelType: "Auto",
             placeholder: 'Select items',
-            enableRtl: true,
             mode: 'Delimiter',
+            enableRtl: true,
             cssClass: 'e-outline'
         });
         //Render initialized TreeView
@@ -156,8 +406,8 @@
             showCheckBox: true,
             floatLabelType: "Auto",
             placeholder: 'Select items',
-            enableRtl: true,
             mode: 'Box',
+            enableRtl: true,
             cssClass: 'e-outline'
         });
         //Render initialized TreeView
@@ -172,12 +422,14 @@
             showCheckBox: true,
             floatLabelType: "Auto",
             placeholder: 'Select items',
-            enableRtl: true,
             mode: 'Custom',
+            enableRtl: true,
             cssClass: 'e-outline'
         });
         //Render initialized TreeView
         ddTreeObj_wrap2.appendTo("#wrap2");
+
+
 
 
     </script>
@@ -197,5 +449,4 @@
 
 
 </body>
-
 </html>

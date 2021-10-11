@@ -16980,7 +16980,6 @@ textarea.e-filled.e-disabled.e-input::-webkit-input-placeholder {
 
 .e-ddt.e-show-chip .e-chips-close::before {
   font-size: 16px;
-  vertical-align: middle;
 }
 
 .e-ddt.e-show-chip .e-chips {
@@ -17485,7 +17484,7 @@ textarea.e-filled.e-disabled.e-input::-webkit-input-placeholder {
 
 .e-bigger .e-ddt.e-outline.e-show-chip .e-overflow,
 .e-ddt.e-bigger.e-outline.e-show-chip .e-overflow {
-  padding: 8px 16px;
+  padding: 8px 15px;
 }
 
 .e-bigger .e-ddt.e-outline.e-show-chip .e-overflow.e-total-count .e-remain,
@@ -17500,7 +17499,7 @@ textarea.e-filled.e-disabled.e-input::-webkit-input-placeholder {
 
 .e-bigger .e-ddt.e-outline.e-show-chip .e-chips-wrapper,
 .e-ddt.e-bigger.e-outline.e-show-chip .e-chips-wrapper {
-  padding: 8px 16px;
+  padding: 8px 15px;
 }
 
 .e-bigger .e-ddt.e-filled.e-float-input.e-control-wrapper .e-overflow.e-show-text,

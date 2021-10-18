@@ -2,7 +2,7 @@
 
 <head>
     <title>Essential JS 2 :TreeView</title>
-    <link href="styles/bootstrap5.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.syncfusion.com/ej2/bootstrap5.css" rel="stylesheet">
     <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js" type="text/javascript"></script>
     </title>
 </head>
@@ -16,17 +16,28 @@
         <b>Self Referential TreeView</b>
         <div id="tree2"></div>
     </div>
-    <div class="layout">
-        <b>Remote Data</b>
-        <div id="tree3"></div>
-    </div>
+  
     <div class="layout">
         <b>Navigation Tree</b><i> Click any node text for navigation</i>
         <div id="tree4"></div>
     </div>
     <div class="layout">
+        <b>Navigation Tree - FullRow Navigation</b><i> Click any where on the node for navigation</i>
+        <div id="tree13"></div>
+    </div>
+    <div class="layout">
         <b>ShowCheckBox</b>
         <div id="tree5"></div>
+    </div>
+    <div class="layout">
+        <b>AutoCheck disabled Tree</b>
+        <div id="tree12">
+        </div>
+    </div>
+
+    <div class="layout">
+        <b>Remote Data</b>
+        <div id="tree3"></div>
     </div>
     <div class="layout">
         <b>Editing</b>
@@ -210,6 +221,10 @@
         var nodeTree = new ej.navigations.TreeView({ fields: { dataSource: data2, id: 'nodeId', text: 'nodeText', hasChildren: 'hasChild', parentID: 'nodePid', iconCss: 'icon', imageUrl: 'image', navigateUrl: 'nodeUrl' },  })
         nodeTree.appendTo('#tree4');
 
+        var fullnodeTree = new ej.navigations.TreeView({ fields: { dataSource: data2, id: 'nodeId', text: 'nodeText', hasChildren: 'hasChild', parentID: 'nodePid', iconCss: 'icon', imageUrl: 'image', navigateUrl: 'nodeUrl' }, 
+        fullRowNavigable: true })
+        fullnodeTree.appendTo('#tree13');
+
         // Checkbox
 
         var checktree = new ej.navigations.TreeView({ fields: { dataSource: data1, id: 'nodeId', text: 'nodeText', child: 'nodeChild', iconCss: 'icon', imageUrl: 'image' }, showCheckBox: true })
@@ -252,7 +267,12 @@
         });
         disableTree.appendTo('#tree11');
 
-       
+        var autoCheckTree = new ej.navigations.TreeView({
+            fields: { dataSource: data3, id: 'id', parentID: 'pid', text: 'name', hasChildren: 'hasChild' },
+            autoCheck: false,
+            showCheckBox: true
+        });
+        autoCheckTree.appendTo('#tree12');
      
 
     </script>
